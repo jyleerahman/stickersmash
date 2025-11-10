@@ -9,14 +9,16 @@ export default function Index() {
     <View style={styles.container}>
       <View style={styles.imageContainer}>
         <ImageViewer imgSource={PlaceholderImage} />
-        <View style={styles.footerContainer}>
-          <Button label='Choose a photo' />
-          <Button label='Use this photo' />
-        </View>
+      </View>
+      <View style={styles.footerContainer}>
+        <Button label='Choose a photo' theme='primary' />
+        <Button label='Use this photo' />
       </View>
     </View>
   );
 }
+
+
 
 const styles = StyleSheet.create({
   container: {
