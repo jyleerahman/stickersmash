@@ -1,5 +1,6 @@
 import Button from '@/components/Button';
 import CircleButton from '@/components/CircleButton';
+import EmojiPicker from '@/components/EmojiPicker';
 import IconButton from '@/components/IconButton';
 import ImageViewer from '@/components/ImageViewer';
 
@@ -13,6 +14,7 @@ const PlaceholderImage = require('@/assets/images/background-image.png')
 export default function Index() {
   const [selectedImage, setSelectedImage] = useState<string | undefined>(undefined);
   const [showAppOptions, setShowAppOptions] = useState<boolean>(false);
+  const [isModalVisible, setIsModalVisible] = useState<boolean>(false);
 
   const pickImageAsync = async () => {
     let result = await ImagePicker.launchImageLibraryAsync({
@@ -35,11 +37,15 @@ export default function Index() {
   }
 
   const onAddSticker = () => {
-    // will implement later
+    setIsModalVisible(true);
+  }
+
+  const onModalClose = () => {
+    setIsModalVisible(false);
   }
 
   const onSaveImageAsync = async () => {
-    // will implement later
+    //implement later
   }
 
 
@@ -62,7 +68,9 @@ export default function Index() {
           <Button label='Use this photo' />
         </View>
       )}
+      <EmojiPicker isVisible={isModalVisible} onClose={onModalClose}>
 
+      </EmojiPicker>
     </View>
   );
 }
